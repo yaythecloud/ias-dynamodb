@@ -22,6 +22,12 @@ variable "hash_key" {
     default     = ""
 }
 
+variable "hash_type" {
+    description = "The type DynamoDB should expect as a hash_key. Example: string (S) or number (N)"
+    type        = string 
+    default     = "S"
+}
+
 variable "range_key" {
     description = "The attribute to use as the range (sort) key."
     type        = string
