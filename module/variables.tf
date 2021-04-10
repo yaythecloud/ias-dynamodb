@@ -23,7 +23,7 @@ variable "hash_key" {
 }
 
 variable "hash_type" {
-    description = "The type DynamoDB should expect as a hash_key. Example: string (S) or number (N)"
+    description = "The type DynamoDB should expect as a hash_key. Example: string (S), number (N) or binary (B)"
     type        = string 
     default     = "S"
 }
@@ -35,7 +35,7 @@ variable "range_key" {
 }
 
 variable "range_type" {
-    description = "The type DynamoDB should expect as a range_key. Example: string (S) or number (N)"
+    description = "The type DynamoDB should expect as a range_key. Example: string (S), number (N) or binary (B)"
     type        = string 
     default     = "S"
 }
