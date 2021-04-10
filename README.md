@@ -6,7 +6,17 @@ The following resources will be created
 
   - DynamoDB Table
 
-*Important*: I am not setting a Terraform version on this module. 
+**Important**: I am not setting a Terraform version on this module. 
+
+The following variables are just for my tracking purposes and not used in the module
+
+```
+locals {
+    release_version   = "0.1"
+    terraform_version = "0.13"
+    hashicorp_aws     = "3.35.0"
+}
+```
 
 ### How to use this module
 
