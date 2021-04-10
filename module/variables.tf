@@ -34,6 +34,12 @@ variable "range_key" {
     default     = ""
 }
 
+variable "range_type" {
+    description = "The type DynamoDB should expect as a range_key. Example: string (S) or number (N)"
+    type        = string 
+    default     = "S"
+}
+
 variable "write_capacity" {
     description = "The number of write units for this table. If billing_mode is PROVISIONED, this field is required."
     type        = number
@@ -46,3 +52,8 @@ variable "read_capacity" {
     default     = 10
 }
 
+variable "attribute" {
+    description = "Enables range_key attribute if range_key and range_type are set."
+    type        = any 
+    default     = []
+}

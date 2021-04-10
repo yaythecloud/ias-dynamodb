@@ -10,6 +10,15 @@ resource "aws_dynamodb_table" "dynamo" {
         name = var.hash_key
         type = var.hash_type
     }
+
+    dynamic "attribute" {
+      for_each = var.attribute
+
+      content {
+        name = var.range_key
+        type = var.range_type
+      }
+    }
     
     tags = merge(
       var.tags
