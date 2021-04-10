@@ -8,7 +8,7 @@ The following resources will be created
 
 **Important**: I am not setting a Terraform version on this module. 
 
-The following variables are just for my tracking purposes and not used in the module
+The following variables are just for my tracking purposes and are not used in the module
 
 ```
 locals {
