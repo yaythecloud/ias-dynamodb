@@ -6,6 +6,7 @@ resource "aws_dynamodb_table" "dynamo" {
     hash_key       = var.hash_key
     range_key      = var.range_key
 
+    # not dynamic because hash_key is required
     attribute {
         name = var.hash_key
         type = var.hash_type
@@ -19,7 +20,12 @@ resource "aws_dynamodb_table" "dynamo" {
         type = var.range_type
       }
     }
-    
+
+    ttl {
+      attribute_name = var.attribute_name
+      enabled = var.enabled
+    }
+
     tags = merge(
       var.tags
     )

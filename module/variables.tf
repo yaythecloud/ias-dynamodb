@@ -57,3 +57,15 @@ variable "attribute" {
     type        = any 
     default     = []
 }
+
+variable "enabled" {
+    description = "Indicates whether ttl is enabled."
+    type        = bool
+    default     = false
+}
+
+variable "attribute_name" {
+    description = "The name of the table attribute to store the TTL timestamp in."
+    type        = string
+    default     = ""
+}
