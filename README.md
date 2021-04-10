@@ -74,8 +74,8 @@ To add TTL to the deployment, add the variables ```attribute_name``` and ```enab
 module "dynamodb" {
     source            = "./module"
 
-    name              = "${var.environment}-portfolio-tracker"
-    hash_key          = "ticker"
+    name              = "${var.environment}-vegetables"
+    hash_key          = "vegetables"
     attribute_name    = "TimeToExist"
     enabled           = true
 
