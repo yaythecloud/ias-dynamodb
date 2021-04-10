@@ -37,3 +37,21 @@ module "dynamodb" {
     }
 }
 ```
+
+The module by default has a default map of tags. To adjust these add key / value pairs to ```.terraform/modules/${module}/main.tf```
+
+```
+module "dynamodb" {
+    source            = "./module"
+
+    name              = "${var.environment}-vegetables"
+    hash_key          = "vegetables"
+
+    tags = {
+        Terraform     = "true"
+        IAS           = "true"
+        Purpose       = "tracking vegetables"
+        Environment   = var.environment
+    }
+}
+```
