@@ -67,6 +67,33 @@ module "dynamodb" {
 }
 ```
 
+### Specifying Attribute (hash_key)
+
+To specify an attribute add the attribute block below to ```.terraform/modules/${module}/main.tf```.
+
+```
+module "dynamodb" {
+    source            = "./module"
+
+    name              = "${var.environment}-vegetables"
+    hash_key          = "vegetables"
+    attribute_name    = "TimeToExist"
+    enabled           = true
+
+    attribute = [
+        {
+            name      = "vegetables"
+            type      = "S"
+        }
+    ]
+
+    tags = {
+        Terraform     = "true"
+        IAS           = "true"
+    }
+}
+```
+
 ### Dynamo with TTL
 
 To add TTL to the deployment, add the variables ```attribute_name``` and ```enabled``` to ```.terraform/modules/${module}/main.tf```.
@@ -79,6 +106,12 @@ module "dynamodb" {
     attribute_name    = "TimeToExist"
     enabled           = true
 
+    attribute = [
+        {
+            name      = "vegetables"
+            type      = "S"
+        }
+    ]
 
     tags = {
         Terraform     = "true"
