@@ -53,8 +53,8 @@ variable "read_capacity" {
 }
 
 variable "attribute" {
-    description = "Enables range_key attribute if range_key and range_type are set."
-    type        = any 
+    description = "List of nested attribute definitions."
+    type        = list(map(string))
     default     = []
 }
 
