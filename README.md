@@ -32,7 +32,7 @@ If you run a ```terraform apply``` with the default configuration you will need 
 
 ```
 module "dynamodb" {
-    source            = "./modules/ias-dynamodb"
+    source            = "./modules/ias-dynamodb/module"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -49,7 +49,7 @@ The module by default has a map of tags. To adjust these add key / value pairs.
 
 ```
 module "dynamodb" {
-    source            = "./modules/ias-dynamodb"
+    source            = "./modules/ias-dynamodb/module"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -69,7 +69,7 @@ To specify an attribute add the attribute block.
 
 ```
 module "dynamodb" {
-    source            = "./modules/ias-dynamodb"
+    source            = "./modules/ias-dynamodb/module"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -96,7 +96,7 @@ To add TTL to the deployment, add the variables ```attribute_name``` and ```enab
 
 ```
 module "dynamodb" {
-    source            = "./modules/ias-dynamodb"
+    source            = "./modules/ias-dynamodb/module"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -123,7 +123,7 @@ To enable DynamoDB streams, add the variables ```stream_enabled``` and ```stream
 
 ```
 module "dynamodb" {
-    source            = "./modules/ias-dynamodb"
+    source            = "./modules/ias-dynamodb/module"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -152,7 +152,7 @@ To enable point in time recovery, add the variable ```point_in_time_recovery```.
 
 ```
 module "dynamodb" {
-    source                 = "./modules/ias-dynamodb"
+    source                 = "./modules/ias-dynamodb/module"
 
     name                   = "${var.environment}-vegetables"
     hash_key               = "vegetables"
