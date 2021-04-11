@@ -6,21 +6,11 @@ The following resources will be created
 
   - DynamoDB Table
 
-**Disclaimer**: I am not setting a Terraform version on this module. This module should be used for personal use only and not for corporate / enterprise use. I am not responsible for anything you decide to use this module for.
-
-The following variables are just for my tracking purposes and are not used in the module.
-
-```
-locals {
-    release_version   = "0.1"
-    terraform_version = "0.13"
-    hashicorp_aws     = "3.35.0"
-}
-```
+**Important**: I am not setting a Terraform version on this module.
 
 ### How to use this module
 
-In your Terraforms root dir ```main.tf``` file create a new module and use this repo's git clone address as the source.
+1. Use this repository as a remote source and in your Terraforms root dir ```main.tf``` file create a new module and use this repo's git clone address as the source.
 
 ```
 module "dynamodb" {
@@ -28,7 +18,13 @@ module "dynamodb" {
 }
 ```
 
-To adjust variables within the module, you will need to make these changes in ```.terraform/modules/${module}/main.tf```.
+2. Clone the repository and use it locally. In your Terraforms root dir ```main.tf``` file create a new module and specify the module path as the source.
+
+```
+module "dynamodb" {
+    source = "modules/ias-dynamodb"
+}
+```
 
 ### Default Deployment
 
@@ -36,7 +32,7 @@ If you run a ```terraform apply``` with the default configuration you will need 
 
 ```
 module "dynamodb" {
-    source            = "./module"
+    source            = "./modules/ias-dynamodb"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -49,11 +45,11 @@ module "dynamodb" {
 ```
 ### Adding Tags
 
-The module by default has a map of tags. To adjust these add key / value pairs to ```.terraform/modules/${module}/main.tf```.
+The module by default has a map of tags. To adjust these add key / value pairs.
 
 ```
 module "dynamodb" {
-    source            = "./module"
+    source            = "./modules/ias-dynamodb"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -69,11 +65,11 @@ module "dynamodb" {
 
 ### Specifying Attribute (hash_key)
 
-To specify an attribute add the attribute block below to ```.terraform/modules/${module}/main.tf```.
+To specify an attribute add the attribute block.
 
 ```
 module "dynamodb" {
-    source            = "./module"
+    source            = "./modules/ias-dynamodb"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -96,11 +92,11 @@ module "dynamodb" {
 
 ### Dynamo with TTL
 
-To add TTL to the deployment, add the variables ```attribute_name``` and ```enabled``` to ```.terraform/modules/${module}/main.tf```.
+To add TTL to the deployment, add the variables ```attribute_name``` and ```enabled```.
 
 ```
 module "dynamodb" {
-    source            = "./module"
+    source            = "./modules/ias-dynamodb"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -123,11 +119,11 @@ module "dynamodb" {
 
 ### Dynamo Streams
 
-To enable DynamoDB streams, add the variables ```stream_enabled``` and ```stream_view_type``` to ```.terraform/modules/${module}/main```.
+To enable DynamoDB streams, add the variables ```stream_enabled``` and ```stream_view_type```.
 
 ```
 module "dynamodb" {
-    source            = "./module"
+    source            = "./modules/ias-dynamodb"
 
     name              = "${var.environment}-vegetables"
     hash_key          = "vegetables"
@@ -152,11 +148,11 @@ module "dynamodb" {
 
 ### Point in Time Recovery
 
-To enable point in time recovery, add the variable ```point_in_time_recovery``` to ```.terraform/modules/${module}/main```.
+To enable point in time recovery, add the variable ```point_in_time_recovery```.
 
 ```
 module "dynamodb" {
-    source                 = "./module"
+    source                 = "./modules/ias-dynamodb"
 
     name                   = "${var.environment}-vegetables"
     hash_key               = "vegetables"
