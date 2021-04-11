@@ -6,7 +6,7 @@ The following resources will be created
 
   - DynamoDB Table
 
-**Important**: I am not setting a Terraform version on this module. 
+**Disclaimer**: I am not setting a Terraform version on this module. This module should be used for personal use only and not for corporate / enterprise use. I am not responsible for anything you decide to use this module for.
 
 The following variables are just for my tracking purposes and are not used in the module.
 
