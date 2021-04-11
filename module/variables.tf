@@ -43,13 +43,13 @@ variable "range_type" {
 variable "write_capacity" {
     description = "The number of write units for this table. If billing_mode is PROVISIONED, this field is required."
     type        = number
-    default     = 10
+    default     = 20
 }
 
 variable "read_capacity" {
     description = "The number of read units for this index. Must be set if billing_mode is PROVISIONED."
     type        = number
-    default     = 10
+    default     = 20
 }
 
 variable "attribute" {
