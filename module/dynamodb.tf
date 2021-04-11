@@ -7,7 +7,6 @@ resource "aws_dynamodb_table" "dynamo" {
     range_key              = var.range_key
     stream_enabled         = var.stream_enabled
     stream_view_type       = var.stream_view_type
-    point_in_time_recovery = var.point_in_time_recovery
 
     # not dynamic because hash_key is required
     attribute {

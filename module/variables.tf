@@ -87,9 +87,3 @@ variable "point_in_time_recovery" {
     type        = bool
     default     = false
 }
-
-variable "point_in_time_recovery" {
-    description = "Whether to enable point-in-time recovery. Defaults to false."
-    type        = bool
-    default     = false
-}
