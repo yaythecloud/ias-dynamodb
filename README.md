@@ -97,6 +97,7 @@ module "dynamodb" {
 ### Dynamo with TTL
 
 To add TTL to the deployment, add the variables ```attribute_name``` and ```enabled``` to ```.terraform/modules/${module}/main.tf```.
+
 ```
 module "dynamodb" {
     source            = "./module"
@@ -105,6 +106,35 @@ module "dynamodb" {
     hash_key          = "vegetables"
     attribute_name    = "TimeToExist"
     enabled           = true
+
+    attribute = [
+        {
+            name      = "vegetables"
+            type      = "S"
+        }
+    ]
+
+    tags = {
+        Terraform     = "true"
+        IAS           = "true"
+    }
+}
+```
+
+### Enable Dynamo Streams
+
+To enable DynamoDB streams, add the variables ```stream_enabled``` and ```stream_view_type``` to ```.terraform/modules/${module}/main```.
+
+```
+module "dynamodb" {
+    source            = "./module"
+
+    name              = "${var.environment}-vegetables"
+    hash_key          = "vegetables"
+    attribute_name    = "TimeToExist"
+    enabled           = true
+    stream_enabled    = true
+    stream_view_type  = "NEW_IMAGE"
 
     attribute = [
         {
