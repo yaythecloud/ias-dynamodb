@@ -22,7 +22,7 @@ module "dynamodb" {
 
 ```
 module "dynamodb" {
-    source = "modules/ias-dynamodb"
+    source = "modules/ias-dynamodb/module"
 }
 ```
 
