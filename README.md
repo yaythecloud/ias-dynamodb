@@ -175,5 +175,3 @@ module "dynamodb" {
     }
 }
 ```
-
-**Module is managed by Tyler Webb, CEO and Founder of YAY THE CLOUD, LLC**
